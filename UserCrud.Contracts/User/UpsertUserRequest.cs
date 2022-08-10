@@ -1,6 +1,6 @@
 namespace UserCrud.Contracts.User;
 
-public record UpsertUserRequest(
+public record UpdateUserRequest(
     Guid Id,
     string Username,
     string FirstName,
