@@ -88,6 +88,16 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "UserCrud.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/UserCrud.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UserCrud.Contracts.dll": {}
+        }
       }
     }
   },
@@ -216,11 +226,17 @@
         "swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "UserCrud.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../UserCrud.Contracts/UserCrud.Contracts.csproj",
+      "msbuildProject": "../UserCrud.Contracts/UserCrud.Contracts.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Swashbuckle.AspNetCore >= 6.2.3"
+      "Swashbuckle.AspNetCore >= 6.2.3",
+      "UserCrud.Contracts >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -247,7 +263,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/admin/Projects/UserCrud/UserCrud.Contracts/UserCrud.Contracts.csproj": {
+              "projectPath": "/Users/admin/Projects/UserCrud/UserCrud.Contracts/UserCrud.Contracts.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
