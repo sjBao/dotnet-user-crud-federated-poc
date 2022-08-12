@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 
 import { UserFormControlData } from './helpers';
-import { Input } from '../Input';
-import { Label } from '../Label';
-import { Button } from '../Button';
+import { Input } from 'barwarg_cinpus_ui/Input';
+import { Label } from 'barwarg_cinpus_ui/Label';
+import { Button } from 'barwarg_cinpus_ui/Button';
 
 interface NewUserFormElement extends HTMLFormElement {
     username: HTMLInputElement;

@@ -1,0 +1,9 @@
+{
+    "name": "barwarg_cinpus_ui",
+    "exposes": {
+        "./Button": "./src/components/Button/index",
+        "./Input": "./src/components/Input/index",
+        "./Label": "./src/components/Label/index",
+        "./ListItem": "./src/components/ListItem/index"
+    }
+}

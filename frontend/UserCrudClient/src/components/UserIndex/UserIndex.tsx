@@ -1,14 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 
-import { UserDataModel, fetchUsers } from './helpers';
+import { Button } from 'barwarg_cinpus_ui/Button';
+import { Input } from 'barwarg_cinpus_ui/Input';
+import { Label } from 'barwarg_cinpus_ui/Label';
+import { ListItem } from 'barwarg_cinpus_ui/ListItem';
+import { useEffect, useRef, useState } from 'react';
+
 import { NewUserForm } from '../NewUserForm';
-import { Button } from '../Button';
-import { ListItem } from '../ListItem';
-import { Label } from '../Label';
+import { fetchUsers, UserDataModel } from './helpers';
 
 import './UserList.css';
 import './UserListItem.css';
-import { Input } from '../Input';
 
 type UserListProps = {
     users: UserDataModel[];

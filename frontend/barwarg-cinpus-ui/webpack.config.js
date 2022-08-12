@@ -1,13 +1,12 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const WebpackRemoteTypesPlugin = require("webpack-remote-types-plugin").default;
 
-const federatedRemotes = require('./remotes.config.json');
+const federationConfig = require('./federation.config.json');
 
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    publicPath: "http://localhost:8080/",
+    publicPath: "http://localhost:8081/",
   },
 
   resolve: {
@@ -15,7 +14,7 @@ module.exports = {
   },
 
   devServer: {
-    port: 8080,
+    port: 8081,
     historyApiFallback: true,
   },
 
@@ -44,12 +43,8 @@ module.exports = {
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "UserCrudClient",
+      ...federationConfig,
       filename: "remoteEntry.js",
-      remotes: {
-        ...federatedRemotes,
-      },
-      exposes: {},
       shared: {
         ...deps,
         react: {
@@ -65,12 +60,5 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
     }),
-    new WebpackRemoteTypesPlugin({
-      remotes: {
-        ...federatedRemotes,
-      },
-      outputDir: 'federated-module-types',
-      remoteFileName: '[name]-dts.tgz'
-    })
   ],
 };
