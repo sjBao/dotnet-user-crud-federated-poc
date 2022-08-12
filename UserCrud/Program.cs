@@ -1,4 +1,7 @@
+global using UserCrud.Data;
+global using Microsoft.EntityFrameworkCore;
 using UserCrud.Services.Users;
+
 
 var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -17,6 +20,11 @@ var builder = WebApplication.CreateBuilder(args);
     });
 
     builder.Services.AddControllers();
+
+    builder.Services.AddDbContext<UserContext>(options =>
+    {
+        options.UseSqlite("Data Source=users.db");
+    });
 
     builder.Services.AddScoped<IUserService, UserService>();
 
