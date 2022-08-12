@@ -130,9 +130,9 @@ const UserListItem = ({ user, deleteUser, editUser }: UserListItemProps) => {
             </div>
             <div className="users-list-item__date-created">
                 <Label>Date Created</Label>
-                <div>
+                <pre>
                     {new Date(user.dateCreated).toLocaleString()}
-                </div>
+                </pre>
             </div>
             {
                 !isEditing ? (
