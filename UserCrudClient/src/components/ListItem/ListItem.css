@@ -1,0 +1,21 @@
+/* List Item */
+:root {
+    --list-item-background-color: #fff;
+    --list-item-border-color: #ced4da;
+    --list-item-border-radius: 0.25rem;
+    --list-item-font-color: #495057;
+    --list-item-font-size: 1rem;
+    --list-item-padding-y: 0.75rem;
+}
+
+.user-crud-client__list-item {
+    background: var(--list-item-background-color);
+    border-radius: var(--list-item-border-radius);
+    border: 1px solid var(--list-item-border-color);
+    box-sizing: border-box;
+    color: var(--list-item-font-color);
+    display: block;
+    font-size: var(--list-item-font-size);
+    padding: var(--list-item-padding-y) 0;
+    width: 100%;
+}

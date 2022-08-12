@@ -1,0 +1,22 @@
+:root {
+    --input-background-color: #fff;
+    --input-border-color: #ced4da;
+    --input-border-radius: 0.25rem;
+    --input-font-color: #495057;
+    --input-font-size: 1rem;
+    --input-padding-sm: 0.5rem;
+    --input-padding-x: 1.5rem;
+    --input-padding-y: 0.75rem;
+}
+
+.user-crud-client__input {
+    background: var(--input-background-color);
+    border-radius: var(--input-border-radius);
+    border: 1px solid var(--input-border-color);
+    box-sizing: border-box;
+    color: var(--input-font-color);
+    display: block;
+    font-size: var(--input-font-size);
+    padding: var(--input-padding-sm);
+    width: 100%;
+}

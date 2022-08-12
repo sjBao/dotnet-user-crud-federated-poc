@@ -1,0 +1,62 @@
+:root {
+    --button-height: 40px;
+    --button-font-size: 14px;
+    --button-font-weight: bold;
+    --button-primary-font-color: #fff;
+    --button-primary-background-color: #006597;
+    --button-primary-border-color: #006597;
+    --button-primary-hover-background-color: #006597;
+    --button-primary-hover-border-color: #006597;
+
+    --button-secondary-font-color: #006597;
+    --button-secondary-background-color: #fff;
+    --button-secondary-border-color: #fff;
+    --button-secondary-hover-background-color: #00659764;
+    --button-secondary-hover-border-color: #006597;
+    --button-border-radius: 4px;
+    --button-border-width: 1px;
+    --button-border-style: solid;
+    --button-padding-left: 0.75rem;
+    --button-padding-right: 0.75rem;
+    --button-padding-top: 0.5rem;
+    --button-padding-bottom: 0.5rem;
+    --button-margin-left: 0px;
+    --button-margin-right: 0px;
+    --button-margin-top: 0px;
+    --button-margin-bottom: 0px;
+}
+
+.user-crud-client__button {
+    border-radius: var(--button-border-radius);
+    border: none;
+    cursor: pointer;
+    display: block;
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    height: var(--button-height);
+    margin-bottom: var(--button-margin-bottom);
+    margin-left: var(--button-margin-left);
+    margin-right: var(--button-margin-right);
+    margin-top: var(--button-margin-top);
+    padding-bottom: var(--button-padding-bottom);
+    padding-left: var(--button-padding-left);
+    padding-right: var(--button-padding-right);
+    padding-top: var(--button-padding-top);
+    transition: 0.2s;
+    width: 100%;
+}
+
+.user-crud-client__button.primary {
+    color: var(--button-primary-font-color);
+    background-color: var(--button-primary-background-color);
+}
+
+.user-crud-client__button.secondary {
+    color: var(--button-secondary-font-color);
+    background-color: var(--button-secondary-background-color);
+    border-color: var(--button-secondary-border-color);
+}
+
+.user-crud-client__button.secondary:hover {
+    background-color: var(--button-secondary-hover-background-color);
+}

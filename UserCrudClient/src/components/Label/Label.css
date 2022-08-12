@@ -1,0 +1,12 @@
+:root {
+    --label-font-color: #495057;
+    --label-font-size: 1rem;
+    --label-padding-y: 0.75rem;
+}
+
+.user-crud-client__label {
+    color: var(--label-font-color);
+    display: block;
+    font-size: var(--label-font-size);
+    padding: var(--label-padding-y) 0;
+}
