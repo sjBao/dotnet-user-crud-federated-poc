@@ -1,12 +1,12 @@
 using UserCrud.Models;
-
+using UserCrud.Contracts.User;
 namespace UserCrud.Services.Users;
 
 public interface IUserService
 {
     User Create(User request);
-    User Update(User request);
-    User Get(Guid id);
+    Task<User> Update(Guid id, UpdateUserRequest request);
+    Task<User> Get(Guid id);
     User Delete(Guid id);
-    List<User> GetAll();
+    Task<List<User>> GetAll();
 }

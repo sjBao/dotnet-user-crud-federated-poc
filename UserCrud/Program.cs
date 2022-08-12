@@ -3,12 +3,12 @@ global using Microsoft.EntityFrameworkCore;
 using UserCrud.Services.Users;
 
 
-var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
 {
-    builder.Services.AddCors(options => 
+    builder.Services.AddCors(options =>
     {
         options.AddPolicy(MyAllowSpecificOrigins,
             builder =>
@@ -32,7 +32,6 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddEndpointsApiExplorer();
 
     builder.Services.AddSwaggerGen();
-
 }
 
 
@@ -43,6 +42,20 @@ var app = builder.Build();
     {
         app.UseSwagger();
         app.UseSwaggerUI();
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+            try
+            {
+                var context = services.GetRequiredService<UserContext>();
+                DbInitializer.Initialize(context);
+            }
+            catch (Exception ex)
+            {
+                var logger = services.GetRequiredService<ILogger<Program>>();
+                logger.LogError(ex, "An error occurred creating the DB.");
+            }
+        }
     }
 
     app.UseHttpsRedirection();

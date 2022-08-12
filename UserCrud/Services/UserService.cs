@@ -1,4 +1,5 @@
 using UserCrud.Models;
+using UserCrud.Contracts.User;
 
 namespace UserCrud.Services.Users;
 
@@ -7,32 +8,59 @@ public class UserService : IUserService
     // store users in-memory for now
     private readonly static Dictionary<Guid, User> _users = new();
 
+    private readonly UserContext _userContext;
+
+    public UserService(UserContext context)
+    {
+        _userContext = context;
+    }
+
     public User Create(User user)
     {
-        _users.Add(user.Id, user);
+        _userContext.Users.Add(user);
+        _userContext.SaveChanges();
         return user;
     }
 
-    public User Update(User user)
+    public async Task<User> Update(Guid id, UpdateUserRequest request)
     {
-        _users[user.Id] = user;
+        User user = await _userContext.Users.FindAsync(id);
+        if (user == null)
+        {
+            throw new System.Exception("User could not be found");
+        }
+        user.Username = request.Username;
+        user.FirstName = request.FirstName;
+        user.LastName = request.LastName;
+        _userContext.SaveChanges();
+        
         return user;
     }
 
-    public User Get(Guid id)
+    public async Task<User> Get(Guid id)
     {
-        return _users[id];
+        User? user = await _userContext.Users.FindAsync(id);
+        return user;
     }
 
     public User Delete(Guid id)
     {
-        var user = _users[id];
-        _users.Remove(id);
-        return user;
+        User? user = _userContext.Users.Find(id);
+        if (user == null)
+        {
+            throw new System.Exception("User could not be found");
+        }
+        else
+        {
+            _userContext.Users.Remove(user);
+            _userContext.SaveChanges();
+            return user;
+        }
     }
 
-    public List<User> GetAll()
+    public async Task<List<User>> GetAll()
     {
-        return _users.Values.ToList();
+        List<User> users = await _userContext.Users.ToListAsync();
+        return users;
     }
 }
